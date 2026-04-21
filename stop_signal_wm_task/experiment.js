@@ -1407,12 +1407,12 @@ var goPracticeNode = {
       if (missedResponses / total > goOmissionPracticeThresh) {
         feedbackText += `<p class = block-text>You have been responding too slowly. Remember:</p>
           ${speedReminder}`;
-
-        feedbackText +=
-          `<p class=block-text>We are now going to repeat the practice round.</p>` +
-          `<p class=block-text>Press <i>enter</i> to begin.</p></div>`;
       }
-      
+
+      feedbackText +=
+        `<p class=block-text>We are now going to repeat the practice round.</p>` +
+        `<p class=block-text>Press <i>enter</i> to begin.</p></div>`;
+
       goStims = createGoTrialTypes(goPracticeLen);
       return true;
     }
@@ -1725,8 +1725,10 @@ var phase2PracticeNode = {
         feedbackText += `
         <p class="block-text">You have not been stopping your response when stars are present.</p>
         <p class="block-text">Please try your best to stop your response if you see a star.</p>`;
-      }
-      if (stopSignalRespond === minStopCorrectPractice) {
+      } else if (
+        stopSignalRespond === minStopCorrectPractice &&
+        missedGoResponses <= missedResponseThresh
+      ) {
         feedbackText += `
         <p class="block-text">Please do not slow down and wait for the star to appear. Respond as quickly and accurately as possible when a star does not appear.</p>`;
       }
@@ -2065,9 +2067,11 @@ var practiceNode = {
         feedbackText += `
         <p class="block-text">You have not been stopping your response when stars are present.</p>
         <p class="block-text">Please try your best to stop your response if you see a star.</p>`;
-      }
-
-      if (stopSignalRespond === minStopCorrectPractice) {
+      } else if (
+        stopSignalRespond === minStopCorrectPractice &&
+        missedGoResponses <= missedResponseThresh &&
+        missedLetterResponses <= missedResponseThresh
+      ) {
         feedbackText += `
         <p class="block-text">Please do not slow down and wait for the star to appear. Respond as quickly and accurately as possible when a star does not appear.</p>`;
       }
@@ -2297,9 +2301,11 @@ var testNode = {
         feedbackText += `
         <p class="block-text">You have not been stopping your response when stars are present.</p>
         <p class="block-text">Please try your best to stop your response if you see a star.</p>`;
-      }
-
-      if (stopSignalRespond <= minStopCorrect || SSD_0_percentage < 0.5) {
+      } else if (
+        stopSignalRespond <= minStopCorrect &&
+        missedGoResponses <= missedResponseThresh &&
+        missedLetterResponses <= missedResponseThresh
+      ) {
         feedbackText += `
         <p class="block-text">Please do not slow down and wait for the star to appear. Respond as quickly and accurately as possible when a star does not appear.</p>`;
       }
