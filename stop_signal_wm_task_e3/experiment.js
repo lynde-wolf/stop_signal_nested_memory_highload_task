@@ -699,11 +699,25 @@ var buildSpatialLetterHTML = function (selectedLetters) {
 };
 var possibleConditions = ['in memory set', 'not in memory set'];
 
-/* Image paths */ 
-// local 
-// var pathSource = '/static/experiments/stop_signal_wm_task/images/';
-// expfactory deploy
-var pathSource = '/deployment/repo/stop_signal_wm_experiment/ad17d3ae41c163fc0fa6889becd5e74a04d76f73/stop_signal_wm_task/images/';
+/* Image paths — resolved dynamically from the URL experiment.js was loaded from,
+   so this works under any deploy (local file://, /static/experiments/<folder>/,
+   /deployment/repo/<repo>/<sha>/<folder>/, etc.) without hardcoding a folder name. */
+var pathSource = (function () {
+  var script = document.currentScript;
+  if (!script) {
+    // Fallback for environments where currentScript isn't set during execution.
+    var scripts = document.getElementsByTagName('script');
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      if (scripts[i].src && scripts[i].src.indexOf('experiment.js') !== -1) {
+        script = scripts[i];
+        break;
+      }
+    }
+  }
+  return script && script.src
+    ? script.src.replace(/[^/]*$/, '') + 'images/'
+    : 'images/';
+})();
 var postFileType = ".png'></img>";
 var preFileType = "<img class = center src='" + pathSource;
 // append to images array to preload

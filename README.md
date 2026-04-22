@@ -7,8 +7,8 @@ Companion analysis repo: `stop_signal_nested_memory_highload_analysis`.
 ## Overview
 This experiment has **two types of test blocks**:
 
-1. **Simple stop signal blocks** (`stop_signal/`) — Shape identification (circle/square) with a stop signal (star) on 1/3 of trials. Right hand responses. Identical to the Experiment 1 / Experiment 2 control block.
-2. **Nested memory blocks** (`stop_signal_wm_task/`) — Remember 2, 4, or 6 letters, complete a stop-signal shape trial, then identify whether a probe letter was in the memory set. Right hand for the shape, left hand for the probe.
+1. **Simple stop signal blocks** (`simple_stop_signal_e3/`) — Shape identification (circle/square) with a stop signal (star) on 1/3 of trials. Right hand responses. Identical to the Experiment 1 / Experiment 2 control block.
+2. **Nested memory blocks** (`stop_signal_wm_task_e3/`) — Remember 2, 4, or 6 letters, complete a stop-signal shape trial, then identify whether a probe letter was in the memory set. Right hand for the shape, left hand for the probe.
 
 ## Trial Structure
 
@@ -87,4 +87,4 @@ Letters are displayed in spatial positions on screen (polygon vertices):
 ~65 minutes total (practice + test + breaks)
 
 ## Local Testing
-Open `stop_signal_wm_task/index.html` directly in Chrome or Firefox. jsPsych is loaded from a CDN and the expfactory globals are shimmed locally, so no server is needed.
+Open `stop_signal_wm_task_e3/index.html` directly in Chrome or Firefox. jsPsych is loaded from a CDN and the expfactory globals are shimmed locally, so no server is needed.
