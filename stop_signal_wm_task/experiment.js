@@ -1313,7 +1313,6 @@ for (i = 0; i < goPracticeLen; i++) {
     trial_duration: stimTrialDuration, // 1500
     response_ends_trial: false,
     post_trial_gap: 0,
-    prompt: goPromptText,
     on_finish: function (data) {
       appendGoTrialData(data);
     },
@@ -1691,7 +1690,6 @@ var phase2PracticeNode = {
     var missedGoResponses = (goLength - numGoResponses) / goLength;
     var aveShapeRespondCorrect = sumGoCorrect / goLength;
     var stopSignalRespond = numStopResponses / stopLength;
-    var SSD_0_percentage = SSDs.filter((x) => x == 0).length / SSDs.length;
 
     if (
       phase2PracticeCount == practiceThresh ||
@@ -1743,9 +1741,6 @@ var phase2PracticeNode = {
 
 var practiceStopTrials = [];
 for (i = 0; i < practiceLen; i++) {
-  if (i == 0) {
-    practiceStopTrials.push(practiceFixation);
-  }
   var practiceMemoryPresentation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: getMemoryPresentationStim,
@@ -1781,7 +1776,7 @@ for (i = 0; i < practiceLen; i++) {
     choices: stopChoices,
     correct_choice: getCorrectResponse,
     stimulus_duration: stimStimulusDuration, // 1000
-    trial_duration: stimTrialDuration + 500, // 1500
+    trial_duration: stimTrialDuration + 500, // 2000
     response_ends_trial: false,
     SSD: function () {
       presentationData = jsPsych.data.get().last(1).values()[0];
@@ -1801,8 +1796,8 @@ for (i = 0; i < practiceLen; i++) {
     data: {
       trial_id: 'practice_memory_recognition',
       exp_stage: 'practice',
-      trial_duration: 1500,
-      stimulus_duration: 2000,
+      trial_duration: 2000,
+      stimulus_duration: 1500,
     },
     choices: letterChoices,
     correct_choice: getCorrectResponse,
@@ -1990,7 +1985,6 @@ var practiceNode = {
     var stopSignalRespond = numStopResponses / stopLength;
     var avgRecognitionRT = recognitionRT / recognitionResponses;
     var recognitionAccuracy = recognitionCorrect / recognitionLength;
-    var SSD_0_percentage = SSDs.filter((x) => x == 0).length / SSDs.length;
 
     // fill out more feedback as needed. it is not complete at the moment
 
@@ -2089,9 +2083,6 @@ var practiceNode = {
 var testTrials = [];
 testTrials.push(attentionNode);
 for (i = 0; i < numTrialsPerBlock; i++) {
-  if (i == 0) {
-    testTrials.push(fixationBlock);
-  }
   var testMemoryPresentation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: getMemoryPresentationStim,
@@ -2146,8 +2137,8 @@ for (i = 0; i < numTrialsPerBlock; i++) {
     data: {
       trial_id: 'test_memory_recognition',
       exp_stage: 'test',
-      trial_duration: 1500,
-      stimulus_duration: 2000,
+      trial_duration: 2000,
+      stimulus_duration: 1500,
     },
     choices: letterChoices,
     correct_choice: getCorrectResponse,
@@ -2243,7 +2234,6 @@ var testNode = {
     var recognitionAccuracy = recognitionCorrect / recognitionLength;
     var missedLetterResponses =
       (recognitionLength - recognitionResponses) / recognitionLength;
-    var SSD_0_percentage = SSDs.filter((x) => x == 0).length / SSDs.length;
 
     currentAttentionCheckData = attentionCheckData.shift();
 
