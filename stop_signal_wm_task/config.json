@@ -1,6 +1,6 @@
 [
     {
-        "name": "Stop Signal Working Memory",
+        "name": "Stop Signal Working Memory E3",
         "template": "jspsych",
         "run": [
             "static/js/math.min.js",
@@ -18,7 +18,7 @@
             "style.css",
             "experiment.js"
         ],
-        "exp_id": "stop_signal_wm_task",
+        "exp_id": "stop_signal_wm_task_e3",
         "cognitive_atlas_task_id": "tsk_4a57abb949e1a",
         "contributors": [
             "Patrick Bissett",

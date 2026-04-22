@@ -1,6 +1,6 @@
 [
   {
-    "name": "Simple Stop Signal",
+    "name": "Simple Stop Signal E3",
     "template": "jspsych",
     "run": [
       "static/js/math.min.js",
@@ -18,7 +18,7 @@
       "style.css",
       "experiment.js"
     ],
-    "exp_id": "stop_signalc",
+    "exp_id": "simple_stop_signal_e3",
     "cognitive_atlas_task_id": "tsk_4a57abb949e1a",
     "contributors": [
       "Patrick Bissett",
