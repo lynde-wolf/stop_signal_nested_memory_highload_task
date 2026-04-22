@@ -911,15 +911,15 @@ var endBlock = {
   choices: ['Enter'],
 };
 
-var stop_signal_experiment = [];
-var stop_signal_init = () => {
+var simple_stop_signal_e3_experiment = [];
+var simple_stop_signal_e3_init = () => {
   jsPsych.pluginAPI.preloadImages(images);
   stims = createTrialTypes(practiceLen);
-  stop_signal_experiment.push(fullscreen);
-  stop_signal_experiment.push(instructionNode);
-  stop_signal_experiment.push(practiceNode);
-  stop_signal_experiment.push(testNode);
-  stop_signal_experiment.push(postTaskBlock);
-  stop_signal_experiment.push(endBlock);
-  stop_signal_experiment.push(exitFullscreen);
+  simple_stop_signal_e3_experiment.push(fullscreen);
+  simple_stop_signal_e3_experiment.push(instructionNode);
+  simple_stop_signal_e3_experiment.push(practiceNode);
+  simple_stop_signal_e3_experiment.push(testNode);
+  simple_stop_signal_e3_experiment.push(postTaskBlock);
+  simple_stop_signal_e3_experiment.push(endBlock);
+  simple_stop_signal_e3_experiment.push(exitFullscreen);
 };

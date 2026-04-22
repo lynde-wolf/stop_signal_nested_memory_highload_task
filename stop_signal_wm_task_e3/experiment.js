@@ -2374,24 +2374,24 @@ var endBlock = {
   post_trial_gap: 0,
 };
 
-var stop_signal_wm_task_experiment = [];
-var stop_signal_wm_task_init = () => {
+var stop_signal_wm_task_e3_experiment = [];
+var stop_signal_wm_task_e3_init = () => {
   jsPsych.pluginAPI.preloadImages(images);
-  stop_signal_wm_task_experiment.push(fullscreen);
+  stop_signal_wm_task_e3_experiment.push(fullscreen);
   goStims = createGoTrialTypes(goPracticeLen);
-  stop_signal_wm_task_experiment.push(goInstructionNode);
-  stop_signal_wm_task_experiment.push(goPracticeNode);
+  stop_signal_wm_task_e3_experiment.push(goInstructionNode);
+  stop_signal_wm_task_e3_experiment.push(goPracticeNode);
   phase2Stims = createPhase2TrialTypes(phase2PracticeLen);
-  stop_signal_wm_task_experiment.push(phase2InstructionNode);
-  stop_signal_wm_task_experiment.push(phase2PracticeNode);
+  stop_signal_wm_task_e3_experiment.push(phase2InstructionNode);
+  stop_signal_wm_task_e3_experiment.push(phase2PracticeNode);
   phase1Stims = createPhase1TrialTypes(phase1PracticeLen);
-  stop_signal_wm_task_experiment.push(phase1InstructionNode);
-  stop_signal_wm_task_experiment.push(phase1PracticeNode);
+  stop_signal_wm_task_e3_experiment.push(phase1InstructionNode);
+  stop_signal_wm_task_e3_experiment.push(phase1PracticeNode);
   stims = createPracticeTrialTypes(practiceLen);
-  stop_signal_wm_task_experiment.push(instructionNode);
-  stop_signal_wm_task_experiment.push(practiceNode);
-  stop_signal_wm_task_experiment.push(testNode);
-  stop_signal_wm_task_experiment.push(postTaskBlock);
-  stop_signal_wm_task_experiment.push(endBlock);
-  stop_signal_wm_task_experiment.push(exitFullscreen);
+  stop_signal_wm_task_e3_experiment.push(instructionNode);
+  stop_signal_wm_task_e3_experiment.push(practiceNode);
+  stop_signal_wm_task_e3_experiment.push(testNode);
+  stop_signal_wm_task_e3_experiment.push(postTaskBlock);
+  stop_signal_wm_task_e3_experiment.push(endBlock);
+  stop_signal_wm_task_e3_experiment.push(exitFullscreen);
 };
